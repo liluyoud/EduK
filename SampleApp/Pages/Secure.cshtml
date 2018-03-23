@@ -1,0 +1,31 @@
+﻿@page
+@using Microsoft.AspNetCore.Authentication;
+@model SampleApp.Pages.SecureModel
+
+@{
+    ViewData["Title"] = "Secure";
+}
+<h2>@ViewData["Title"]</h2>
+
+<h3>User claims</h3>
+
+<div>
+    <a asp-page="JsonUser">Call API using user token</a>
+</div>
+<div>
+    <a asp-page="JsonClient">Call API using application identity</a>
+</div>
+
+<dl>
+    @foreach (var claim in User.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+
+    }
+    <dt>access token</dt>
+    <dd>@await ViewContext.HttpContext.GetTokenAsync("access_token")</dd>
+
+    <dt>refresh token</dt>
+    <dd>@await ViewContext.HttpContext.GetTokenAsync("refresh_token")</dd>
+</dl>
