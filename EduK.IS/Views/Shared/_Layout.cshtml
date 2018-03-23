@@ -1,61 +1,55 @@
-﻿@using IdentityServer4.Extensions
-@{
-    string name = null;
-    if (!true.Equals(ViewData["signed-out"]))
-    {
-        name = Context.User?.GetDisplayName();
-    }
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IdentityServer4</title>
-    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="~/">
-                    <span class="navbar-brand">
-                        <img src="~/icon.png" class="icon-banner">
-                        IdentityServer4
-                    </span>
-                </a>
-            </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="EduK Identity Server">
+    <meta name="author" content="Liluyoud Cury de Lacerda">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon.png">
+    <title>EduK IS</title>
 
-            @if (!string.IsNullOrWhiteSpace(name))
-            {
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@name <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a asp-action="Logout" asp-controller="Account">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            }
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/plugins/prism/prism.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="fix-header fix-sidebar card-no-border">
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+        </svg>
+    </div>
+
+    <div id="main-wrapper">
+        @await Html.PartialAsync("_Cabecalho")
+
+        @await Html.PartialAsync("_BarraLateral")
+
+        <div class="page-wrapper">
+            @RenderBody()
+
+            <footer class="footer"> © @DateTime.Now.Year EduK Identity Server</footer>
         </div>
     </div>
 
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+    <script src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="~/assets/plugins/popper/popper.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.slimscroll.js"></script>
+    <script src="~/js/waves.js"></script>
+    <script src="~/js/sidebarmenu.js"></script>
+    <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="~/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/js/custom.min.js"></script>
+    <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 
-    <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    @RenderSection("scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

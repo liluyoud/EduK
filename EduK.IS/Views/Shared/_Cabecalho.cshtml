@@ -1,0 +1,112 @@
+﻿@using IdentityServer4.Extensions
+@{
+    string name = null;
+    if (!true.Equals(ViewData["signed-out"]))
+    {
+        name = Context.User?.GetDisplayName();
+    }
+}
+<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <!-- Logo -->
+        <div class="navbar-header">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <img src="~/assets/images/Logo-UniSL.png" alt="Logo" class="light-logo" />
+                <span class="text-white"><strong>EduK IS</strong></span>
+            </a>
+        </div>
+
+        <!-- Barra superior -->
+        <div class="navbar-collapse">
+
+            <!-- Esquerda -->
+            <ul class="navbar-nav mr-auto mt-md-0">
+                <!-- Hamburguer menu  -->
+                <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                <!-- Apps -->
+            </ul>
+
+            <!-- Direita -->
+            <ul class="navbar-nav my-lg-0">
+
+                <li class="nav-item dropdown" title="Últimas Notificações">
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="mdi mdi-email"></i>
+                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                    </a>
+                    <div class="dropdown-menu mailbox dropdown-menu-right scale-up" aria-labelledby="2">
+                        <ul>
+                            <li>
+                                <div class="drop-title">Você tem 1 nova notificação</div>
+                            </li>
+                            <li>
+                                <div class="message-center">
+                                    <!-- Message -->
+                                    <a href="#">
+                                        <div class="user-img"> <img src="~/assets/images/browser/safari-logo.png" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                        <div class="mail-contnet">
+                                            <h5>Servidor</h5> <span class="mail-desc">Muitas autenticações</span> <span class="time">9:30</span>
+                                        </div>
+                                    </a>
+
+                                    <!-- Message -->
+                                    <a href="#">
+                                        <div class="user-img"> <img src="~/assets/images/users/8.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                        <div class="mail-contnet">
+                                            <h5>Usuário</h5> <span class="mail-desc">Novo aluno cadastrado</span> <span class="time">9:38</span>
+                                        </div>
+                                    </a>
+
+                                    <!-- Message -->
+                                    <a href="#">
+                                        <div class="user-img"> <img src="~/assets/images/users/d2.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                        <div class="mail-contnet">
+                                            <h5>Usuário</h5> <span class="mail-desc">Novo professor cadastrado</span> <span class="time">9:41</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="nav-link text-center" href="javascript:void(0);"> <strong>Visualizar todas as notificações</strong> <i class="fa fa-angle-right"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                @if (!string.IsNullOrWhiteSpace(name))
+                {
+                    <!-- Usuário -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@name</a>
+                        <div class="dropdown-menu dropdown-menu-right scale-up">
+                            <ul class="dropdown-user">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-img"><img src="../assets/images/users/1.jpg" alt="user"></div>
+                                        <div class="u-text">
+                                            <p class="text-muted">varun@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Ver Perfil</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="ti-user"></i> Meus dados</a></li>
+                                <li><a href="#"><i class="ti-wallet"></i> Resetar senha</a></li>
+                                <li><a href="#"><i class="ti-email"></i> Cadastrar senha</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="ti-settings"></i> Situação da conta</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a asp-controller="Account" asp-action="Logout"><i class="fa fa-power-off"></i> Sair</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                } else
+                {
+                    <li class="nav-item" title="Login no EduK IS">
+                        <a asp-controller="Account" asp-action="Login" class="nav-link dropdown-toggle text-muted waves-effect waves-dark"  aria-expanded="false"><i class="fa fa-sign-out fa-lg"></i></a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+</header>

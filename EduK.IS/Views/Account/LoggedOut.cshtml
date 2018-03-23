@@ -1,21 +1,19 @@
 ﻿@model LoggedOutViewModel
 
-@{ 
+@{
     // set this so the layout rendering sees an anonymous user
     ViewData["signed-out"] = true;
 }
 
-<div class="page-header logged-out">
-    <h1>
-        Logout
-        <small>You are now logged out</small>
-    </h1>
+
+<div class="container-fluid">
+
+    <titulo texto="Logout Efetuado" descricao="Você acabou de sair do Sistema" caminho="EduK IS,Segurança,Logout Efetuado"></titulo>
 
     @if (Model.PostLogoutRedirectUri != null)
     {
         <div>
-            Click <a class="PostLogoutRedirectUri" href="@Model.PostLogoutRedirectUri">here</a> to return to the
-            <span>@Model.ClientName</span> application.
+            <a class="PostLogoutRedirectUri" href="@Model.PostLogoutRedirectUri">Clique aqui</a> para retornar para a aplicação <span>@Model.ClientName</span>.
         </div>
     }
 
@@ -23,7 +21,9 @@
     {
         <iframe width="0" height="0" class="signout" src="@Model.SignOutIframeUrl"></iframe>
     }
+
 </div>
+
 
 @section scripts
 {
