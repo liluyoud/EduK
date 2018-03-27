@@ -8,10 +8,15 @@ namespace EduK.IS
     {
         public static IEnumerable<IdentityResource> GetIdentityResources()
         {
+            var newResource = new IdentityResource(name: "pessoal", displayName: "Dados Pessoais", claimTypes: new[] { "cargo", "funcao", "setor", "telefone", "nascimento", "endereco" });
+            newResource.Description = "Dados pessoais do usuário";
+
             return new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResources.Email(),
+                newResource
             };
         }
 
@@ -46,7 +51,7 @@ namespace EduK.IS
                     ClientName = "EduK Web",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
 
-                    RequireConsent = false,
+                    RequireConsent = true,
 
                     ClientSecrets =
                     {
@@ -60,6 +65,8 @@ namespace EduK.IS
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "pessoal",
                         "edukapi"
                     },
                     AllowOfflineAccess = true,

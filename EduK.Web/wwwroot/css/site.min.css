@@ -1,1 +1,1 @@
-body{padding-top:50px;padding-bottom:20px}.body-content{padding-left:15px;padding-right:15px}.carousel-caption p{font-size:20px;line-height:1.4}.carousel-inner .item img[src$=".svg"]{width:100%}#qrCode{margin:15px}@media screen and (max-width:767px){.carousel-caption{display:none}}
+.user-profile .profile-img{width:50px;margin-left:30px;padding:23px 0;border-radius:100%}.user-profile .profile-img::before{top:23px}.user-profile .profile-text{padding:0 0;font-size:.8rem}.user-profile .profile-text>a{color:#f0f8ff !important;background:rgba(0,0,0,.2)}

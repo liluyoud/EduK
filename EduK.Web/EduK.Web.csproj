@@ -12,5 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EduK.Core\EduK.Core.csproj" />
+    <ProjectReference Include="..\EduK.Web.Components\EduK.Web.Components.csproj" />
   </ItemGroup>
 </Project>

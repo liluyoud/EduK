@@ -23,6 +23,12 @@
         <dd>@claim.Value</dd>
 
     }
+    <dt>Cargo</dt>
+    <dd>@Model.Cargo</dd>
+
+    <dt>id token</dt>
+    <dd>@await ViewContext.HttpContext.GetTokenAsync("id_token")</dd>
+
     <dt>access token</dt>
     <dd>@await ViewContext.HttpContext.GetTokenAsync("access_token")</dd>
 

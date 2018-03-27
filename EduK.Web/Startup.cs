@@ -47,6 +47,8 @@ namespace EduK.Web
 
                     options.Scope.Add("edukapi");
                     options.Scope.Add("profile");
+                    options.Scope.Add("email");
+                    options.Scope.Add("pessoal");
                     options.Scope.Add("offline_access");
                 });
         }

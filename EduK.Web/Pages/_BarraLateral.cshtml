@@ -1,0 +1,51 @@
+﻿@using EduK.Core
+
+<aside class="left-sidebar">
+    <div class="scroll-sidebar">
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <usuario-panel nome="@Context.User?.GetUsuarioNome()" cargo="@Context.User?.GetUsuarioCargo()" foto="@Context.User?.GetUsuarioFoto()"></usuario-panel>
+        }
+
+        <!-- Menu Lateral -->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="nav-small-cap">GESTÃO NEAD</li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Material Didático</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="index2.html">Planejamento</a></li>
+                        <li><a href="index2.html">Professores</a></li>
+                        <li><a href="index3.html">Materiais</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Estúdio</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="../minisidebar/index.html">Calendário</a></li>
+                        <li><a href="../horizontal/index2.html">Reservas</a></li>
+                        <li><a href="../dark/index3.html">Videoaulas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Ead</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="app-calendar.html">Matriz de referência</a></li>
+                        <li><a href="app-chat.html">Mapeamento College</a></li>
+                    </ul>
+                </li>
+                <li class="nav-devider"></li>
+                <li class="nav-small-cap">ACADÊMICO</li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Barra de Atalhos -->
+    <div class="sidebar-footer">
+        <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+    </div>
+</aside>
