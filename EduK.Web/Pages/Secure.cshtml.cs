@@ -23,13 +23,13 @@ namespace EduK.Web.Pages
             //OpenIdConnectParameterNames.IdToken
             if (User.Identity.IsAuthenticated)
             {
-                var discoveryClient = new DiscoveryClient("http://localhost:5000");
-                var metaDataResponse = await discoveryClient.GetAsync();
-                var userInfoClient = new UserInfoClient(metaDataResponse.UserInfoEndpoint);
-                var accessToken = await HttpContext.GetTokenAsync("access_token");
-                var response = await userInfoClient.GetAsync(accessToken);
-                var cargo = response.Claims.FirstOrDefault(c => c.Type == "cargo")?.Value;
-                Cargo = cargo;
+                //var discoveryClient = new DiscoveryClient("http://localhost:5000");
+                //var metaDataResponse = await discoveryClient.GetAsync();
+                //var userInfoClient = new UserInfoClient(metaDataResponse.UserInfoEndpoint);
+                //var accessToken = await HttpContext.GetTokenAsync("access_token");
+                //var response = await userInfoClient.GetAsync(accessToken);
+                //var cargo = response.Claims.FirstOrDefault(c => c.Type == "cargo")?.Value;
+                //Cargo = cargo;
             }
         }
 

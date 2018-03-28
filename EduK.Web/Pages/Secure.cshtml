@@ -10,10 +10,10 @@
 <h3>User claims</h3>
 
 <div>
-    <a asp-page="JsonUser">Call API using user token</a>
+    <a asp-page="JsonUser">Chamar API usando token do usuário</a>
 </div>
 <div>
-    <a asp-page="JsonClient">Call API using application identity</a>
+    <a asp-page="JsonClient">Chamar API usando identitade da aplicação</a>
 </div>
 
 <dl>
@@ -23,8 +23,8 @@
         <dd>@claim.Value</dd>
 
     }
-    <dt>Cargo</dt>
-    <dd>@Model.Cargo</dd>
+    @*<dt>Cargo</dt>
+    <dd>@Model.Cargo</dd>*@
 
     <dt>id token</dt>
     <dd>@await ViewContext.HttpContext.GetTokenAsync("id_token")</dd>

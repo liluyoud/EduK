@@ -8,15 +8,14 @@ namespace EduK.IS
     {
         public static IEnumerable<IdentityResource> GetIdentityResources()
         {
-            var newResource = new IdentityResource(name: "pessoal", displayName: "Dados Pessoais", claimTypes: new[] { "cargo", "funcao", "setor", "telefone", "nascimento", "endereco" });
-            newResource.Description = "Dados pessoais do usuário";
+            //var newResource = new IdentityResource(name: "pessoal", displayName: "Dados Pessoais", claimTypes: new[] { "cargo", "funcao", "setor", "telefone", "nascimento", "endereco" });
+            //newResource.Description = "Dados pessoais do usuário";
 
             return new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-                new IdentityResources.Email(),
-                newResource
+                new IdentityResources.Email()
             };
         }
 
@@ -66,7 +65,6 @@ namespace EduK.IS
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
-                        "pessoal",
                         "edukapi"
                     },
                     AllowOfflineAccess = true,
